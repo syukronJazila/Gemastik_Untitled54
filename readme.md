@@ -9,7 +9,7 @@ Tim peneliti mengawali tahapan konstruksi dataset dengan menetapkan Kabupaten Su
 *   **Pengayaan Fitur Spasial (OpenStreetMap):** Data diperkaya secara berlapis (*layering*) menggunakan data *OpenStreetMap* (OSM) untuk mengekstraksi metrik jaringan jalan. Variabel yang didapatkan meliputi rata-rata jarak antar-KDMP, tingkat kepadatan jalan dalam radius 1 kilometer, serta proksimitas terhadap jalur transportasi utama.
 *   **Pemetaan Aktivitas Ekonomi Wilayah (Google Maps API):** Kami mengekstraksi fasilitas *Point of Interest* (POI) dalam radius 1 km dari setiap titik KDMP. Proses ini berhasil menghimpun 70.343 data POI yang kemudian dikategorikan ke dalam lima kelompok: **Komersial UMKM, Logistik Eksternal, Bank Besar, Keuangan Mikro, dan Lainnya**.
 *   **Feature Engineering POI:** Hasil kategorisasi POI dikonversi menjadi indikator kuantitatif berbasis jarak dan agregasi, mencakup Kepadatan Fasilitas (jumlah POI) dan Jarak Minimum (proksimitas terdekat).
-*   **Integrasi Data Demografi Eksternal:** Struktur geodemografi disempurnakan dengan menggabungkan metrik kependudukan dan ekonomi dari portal data Kabupaten Sukoharjo (https://data.sukoharjokab.go.id, pidekso.sukoharjokab.go.id) serta BPS. Metrik mencakup total populasi, rasio jenis kelamin, luas wilayah, data Keluarga Berencana, dan pendapatan asli desa.
+*   **Integrasi Data Demografi, Pertanian, dan Eksternal Lainnya:** Struktur geodemografi disempurnakan dengan menggabungkan metrik kependudukan, pertanian, dan ekonomi dari portal data Kabupaten Sukoharjo (https://data.sukoharjokab.go.id) serta BPS Kabupaten Sukoharjo. Metrik mencakup total populasi, rasio jenis kelamin, luas wilayah, data partisipasi Keluarga Berencana, produktivitas sektor agraris (tanaman pangan), dan pendapatan asli desa.
 *   **Konsolidasi & Preprocessing (Dataset Final):** Seluruh data dibersihkan dari anomali, diselaraskan indeksnya berdasarkan `cooperative_id`, dan disatukan menjadi satu *dataset* final (162 entitas KDMP) yang siap digunakan untuk *training* model GMM.
 
 ---
@@ -25,12 +25,16 @@ Repositori ini terdiri dari beberapa berkas CSV historis yang merepresentasikan 
     Dataset teknis yang memuat metrik kepadatan ruas jaringan jalan yang dihitung secara bertahap dalam perbesaran radius (dari `ruas 100` meter hingga `ruas 1000` meter).
 *   **`Data_POI_Kopdes_Sukoharjo.csv`**
     Himpunan pangkalan data masif berisi ~71.000 titik *Point of Interest* (POI) mentah hasil ekstraksi dari *Google Maps API*, lengkap dengan koordinat, nama tempat, ulasan, dan tag lokasi.
+*   **`Data_Demografis_Sukoharjo.csv`**
+    Dataset yang bersumber dari BPS dan portal daerah yang mencakup metrik kependudukan komprehensif, seperti total populasi, rasio jenis kelamin, rata-rata usia, luas wilayah, kepadatan penduduk, hingga rasio jumlah Kepala Keluarga (KK) di setiap desa/kelurahan.
+*   **`Data_Pertanian_Sukoharjo.csv`**
+    Dataset sektoral yang memuat indikator produktivitas agribisnis tingkat desa, mencakup metrik volume tanaman pangan, jumlah rumah tangga usaha pertanian, serta usaha pertanian perorangan.
 *   **`Data_Pendapatan_Sukoharjo.csv`**
     Data agregasi finansial tingkat desa yang berisi rekam Pendapatan Asli Desa (PAD) yang berfungsi sebagai tolok ukur kapasitas perputaran ekonomi lokal.
 *   **`Data_Kesehatan_Sukoharjo.csv`**
     Dataset pelengkap dari BPS yang memuat indikator kesehatan demografi, seperti tingkat partisipasi masyarakat pada program Keluarga Berencana.
 *   **`Dataset_Kopdes_Sukoharjo_Final.csv`**
-    **[DATASET UTAMA]** Berkas konsolidasi akhir (*feature-rich*) yang menggabungkan seluruh metrik spasial, ekonomi (POI), dan demografi. Berisi 162 entitas KDMP beserta 34 variabel terintegrasi yang siap dimasukkan ke dalam *pipeline* Machine Learning.
+    **[DATASET UTAMA]** Berkas konsolidasi akhir (*feature-rich*) yang menggabungkan seluruh metrik spasial, ekonomi (POI), kependudukan, pertanian, kesehatan, dan pendapatan. Berisi 162 entitas KDMP beserta 34 variabel terintegrasi yang siap dimasukkan ke dalam *pipeline* Machine Learning.
 
 ---
 
