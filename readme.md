@@ -24,7 +24,7 @@ Repositori ini terdiri dari beberapa berkas CSV historis yang merepresentasikan 
 *   **`Data_Ruas_Jalan_Kopdes_Sukoharjo.csv`**
     Dataset teknis yang memuat metrik kepadatan ruas jaringan jalan yang dihitung secara bertahap dalam perbesaran radius (dari `ruas 100` meter hingga `ruas 1000` meter).
 *   **`Data_POI_Kopdes_Sukoharjo.csv`**
-    Himpunan pangkalan data masif berisi ** ~71.000** titik *Point of Interest* (POI) mentah hasil ekstraksi dari *Google Maps API*, lengkap dengan koordinat, nama tempat, ulasan, dan tag lokasi.
+    Himpunan pangkalan data masif berisi **~71.000** titik *Point of Interest* (POI) mentah hasil ekstraksi dari *Google Maps API*, lengkap dengan koordinat, nama tempat, ulasan, dan tag lokasi.
 *   **`Data_Demografis_Sukoharjo.csv`**
     Dataset yang bersumber dari BPS dan portal daerah yang mencakup metrik kependudukan komprehensif, seperti total populasi, rasio jenis kelamin, rata-rata usia, luas wilayah, kepadatan penduduk, hingga rasio jumlah Kepala Keluarga (KK) di setiap desa/kelurahan.
 *   **`Data_Pertanian_Sukoharjo.csv`**
